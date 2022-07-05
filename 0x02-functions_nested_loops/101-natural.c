@@ -1,48 +1,16 @@
-#include "main.h"
-
+#include <stdio.h>
 /**
- * print_times_table - prints time table
- * @n : use in times table
- * Return:void
+ * main - prints sum
+ * Description: computes and print sum of mulitiples of 3 or 5 below 1024
+ * Return: 0
  */
-void print_times_table(int n)
+int main(void)
 {
-	int a = 0, rep, b;
+	int c, res;
 
-	if (n < 0 || n > 15)
-		return;
-	while (a <= n)
-	{
-		for (b = 0; b <= n; b++)
-		{
-			rep = a * b;
-			if (b == 0)
-				_putchar('0' + rep);
-			else if (rep < 10)
-			{
-				_putchar(' ');
-				_putchar(' ');
-				_putchar('0' + rep);
-			}
-			else if (rep < 100)
-			{
-				_putchar (' ');
-				_putchar('0' + rep / 10);
-				_putchar('0' + rep % 10);
-			}
-			else
-			{
-				_putchar('0' + rep / 100);
-				_putchar('0' + (rep - 100) / 10);
-				_putchar('0' + rep % 10);
-			}
-			if (b < n)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-		}
-		_putchar('\n');
-		a++;
-	}
+	for (c = 0; c < 1024; c++)
+		if (c % 3 == 0 || c % 5 == 0)
+			res += c;
+	printf("%d\n", res);
+	return (0);
 }
