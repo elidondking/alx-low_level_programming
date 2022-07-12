@@ -1,17 +1,18 @@
 #include "main.h"
 
 /**
- * _puts - check description
- * Description: prints a sting followed by a new line
- * @str:input
- * Return: 0
+ * _puts - prints a string to stdout
+ *
+ * @str: string to be printed out
  */
 
 void _puts(char *str)
 {
-while (*str)
+	int i;
 
-_putchar(*str++);
-
-_putchar('\n');
+	for (i = 0; str[i] != 0; i++)
+	{
+		_putchar(str[i]);
+	}
+	_putchar('\n');
 }
