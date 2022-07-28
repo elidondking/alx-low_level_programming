@@ -1,39 +1,30 @@
+ #include <stdlib.h>
 #include "main.h"
 
 /**
- * _memset - copy char
- * @s: string
- * @b: input
- * @n: bytes
- * Return: string
+ * *array_range - creates an array of integers
+ * @min: minimum range of values stored
+ * @max: maximum range of values stored and number of elements
+ *
+ * Return: pointer to the new array
  */
-char *_memset(char *s, char b, unsigned int n)
+int *array_range(int min, int max)
 {
-	unsigned int i;
+	int *ptr;
+	int i, size;
 
-	for (i = 0; i < n; i++)
-	{
-		s[i] = b;
-	}
-	return (s);
-}
-
-/**
- * _calloc - allocates memory for an array using malloc
- * @nmemb: n elements
- * @size: bytes
- * Return: pointer
- */
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	void *p;
-
-	if (nmemb == 0 || size == 0)
+	if (min > max)
 		return (NULL);
-	p = malloc(nmemb * size);
 
-	if (p == NULL)
+	size = max - min + 1;
+
+	ptr = malloc(sizeof(int) * size);
+
+	if (ptr == NULL)
 		return (NULL);
-	_memset(p, 0, (nmemb * size));
-	return (p);
+
+	for (i = 0; min <= max; i++)
+		ptr[i] = min++;
+
+	return (ptr);
 }
