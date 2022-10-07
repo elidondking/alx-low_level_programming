@@ -1,0 +1,1 @@
+Solution task on dynamics
